@@ -1,26 +1,56 @@
-
     <!DOCTYPE html>
     <html>
     <head>
+        <title>EE Prerequisites</title>
         <style>
-            body { background: #f4f7f6; display: flex; justify-content: center; padding: 40px; font-family: sans-serif; }
-            svg { background: white; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
-            
+            body {
+                background: #f4f7f6;
+                display: flex;
+                justify-content: center;
+                padding: 40px;
+                font-family: sans-serif;
+            }
+
+            svg {
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            }
+
             /* Subject Box Hover */
-            .node rect { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s; cursor: pointer; }
-            .node.is-hovered rect { transform: scale(1.15); filter: brightness(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-            
+            .node rect {
+                transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s;
+                cursor: pointer;
+            }
+
+            .node.is-hovered rect {
+                transform: scale(1.15);
+                filter: brightness(1.1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
             /* Arrow Hover */
-            .connector { transition: stroke-width 0.3s, opacity 0.3s, stroke 0.3s; pointer-events: none; }
-            .connector.highlight { stroke-width: 5; opacity: 1; }
-            
-            .year-label { fill: #cbd5e0; font-weight: 800; font-size: 16px; pointer-events: none; }
+            .connector {
+                transition: stroke-width 0.3s, opacity 0.3s, stroke 0.3s;
+                pointer-events: none;
+            }
+
+            .connector.highlight {
+                stroke-width: 3;
+                opacity: 1;
+            }
+
+            .year-label {
+                fill: #cbd5e0;
+                font-weight: 800;
+                font-size: 16px;
+                pointer-events: none;
+            }
         </style>
         <script>
             function syncHover(sid, isEntering) {
                 const node = document.getElementById('node-' + sid);
                 const arrows = document.querySelectorAll('.from-' + sid);
-                
                 if (isEntering) {
                     node.classList.add('is-hovered');
                     arrows.forEach(a => a.classList.add('highlight'));
@@ -34,80 +64,343 @@
     <body>
         <svg width="1300" height="1550" viewBox="0 0 1300 1550">
             <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="context-stroke" />
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="6" refY="3" orient="auto">
+                    <polygon points="0 0, 6 3, 0 7" fill="context-stroke" />
                 </marker>
             </defs>
-            <path d="M 597.5 115 Q 557.5 222.5 597.5 330" class="connector from-MATH1021" stroke="#EF6C00" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 435 352.5 C 485 352.5, 490 352.5, 540 352.5" class="connector from-READINESS_TEST" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 597.5 375 Q 557.5 385.0 597.5 395" class="connector from-MATH1016" stroke="#283593" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 980 352.5 C 930 352.5, 265 677.5, 215 677.5" class="connector from-ELEC1003" stroke="#00838F" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 540 417.5 C 490 417.5, 265 677.5, 215 677.5" class="connector from-MATH1019" stroke="#6A1B9A" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 980 352.5 C 930 352.5, 265 742.5, 215 742.5" class="connector from-ELEC1003" stroke="#00838F" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 655 417.5 C 705 417.5, 930 612.5, 980 612.5" class="connector from-MATH1019" stroke="#6A1B9A" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 417.5 C 265 417.5, 930 612.5, 980 612.5" class="connector from-ENGR1011" stroke="#4527A0" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 612.5 C 265 612.5, 930 677.5, 980 677.5" class="connector from-ELEC1001" stroke="#EF6C00" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 540 417.5 C 490 417.5, 265 807.5, 215 807.5" class="connector from-MATH1019" stroke="#6A1B9A" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 980 352.5 C 930 352.5, 265 807.5, 215 807.5" class="connector from-ELEC1003" stroke="#00838F" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 677.5 C 265 677.5, 930 742.5, 980 742.5" class="connector from-ELEC2001" stroke="#4E342E" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 807.5 C 265 807.5, 930 807.5, 980 807.5" class="connector from-ELEC2011" stroke="#283593" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 100 352.5 C 20 352.5, 20 872.5, 100 872.5" class="connector from-ELEC1006" stroke="#4527A0" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 980 677.5 C 930 677.5, 265 872.5, 215 872.5" class="connector from-ELEC2009" stroke="#558B2F" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 100 807.5 C 20 807.5, 20 937.5, 100 937.5" class="connector from-ELEC2011" stroke="#283593" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 807.5 C 265 807.5, 930 872.5, 980 872.5" class="connector from-ELEC2011" stroke="#283593" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 807.5 C 265 807.5, 930 937.5, 980 937.5" class="connector from-ELEC2011" stroke="#283593" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 612.5 C 265 612.5, 930 1002.5, 980 1002.5" class="connector from-ELEC1001" stroke="#EF6C00" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 980 742.5 C 930 742.5, 265 1002.5, 215 1002.5" class="connector from-ELEC3011" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 1095 742.5 C 1175 742.5, 1175 1067.5, 1095 1067.5" class="connector from-ELEC3011" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 677.5 C 265 677.5, 930 1132.5, 980 1132.5" class="connector from-ELEC2001" stroke="#4E342E" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 100 742.5 C 20 742.5, 20 1132.5, 100 1132.5" class="connector from-ELEC2004" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 320 1132.5 C 270 1132.5, 265 1197.5, 215 1197.5" class="connector from-150CPS" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 937.5 C 265 937.5, 930 1197.5, 980 1197.5" class="connector from-ELEC3001" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 980 1067.5 C 930 1067.5, 265 1262.5, 215 1262.5" class="connector from-ELEC3009" stroke="#4E342E" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 100 937.5 C 20 937.5, 20 1327.5, 100 1327.5" class="connector from-ELEC3001" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 1002.5 C 265 1002.5, 930 1327.5, 980 1327.5" class="connector from-ELEC3006" stroke="#C62828" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 215 677.5 C 265 677.5, 930 1392.5, 980 1392.5" class="connector from-ELEC2001" stroke="#4E342E" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 435 1197.5 C 485 1197.5, 490 1132.5, 540 1132.5" class="connector from-200CPS" stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<path d="M 597.5 1155 Q 557.5 1165.0 597.5 1175" class="connector from-ENGR4041" stroke="#EF6C00" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
-<g class="node" id="node-MATH1021" onmouseenter="syncHover('MATH1021', true)" onmouseleave="syncHover('MATH1021', false)"><rect x="540" y="70" width="115" height="45" fill="#EF6C00" rx="8" style="transform-origin: 597.5px 92.5px" /><text x="597.5" y="97.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">MATH 1021</text></g>
-<g class="node" id="node-ELEC1003" onmouseenter="syncHover('ELEC1003', true)" onmouseleave="syncHover('ELEC1003', false)"><rect x="980" y="330" width="115" height="45" fill="#00838F" rx="8" style="transform-origin: 1037.5px 352.5px" /><text x="1037.5" y="357.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 1003</text></g>
-<g class="node" id="node-ELEC1006" onmouseenter="syncHover('ELEC1006', true)" onmouseleave="syncHover('ELEC1006', false)"><rect x="100" y="330" width="115" height="45" fill="#4527A0" rx="8" style="transform-origin: 157.5px 352.5px" /><text x="157.5" y="357.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 1006</text></g>
-<g class="node" id="node-ENGR1018" onmouseenter="syncHover('ENGR1018', true)" onmouseleave="syncHover('ENGR1018', false)"><rect x="980" y="395" width="115" height="45" fill="#00838F" rx="8" style="transform-origin: 1037.5px 417.5px" /><text x="1037.5" y="422.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR 1018</text></g>
-<g class="node" id="node-ENGR1011" onmouseenter="syncHover('ENGR1011', true)" onmouseleave="syncHover('ENGR1011', false)"><rect x="100" y="395" width="115" height="45" fill="#4527A0" rx="8" style="transform-origin: 157.5px 417.5px" /><text x="157.5" y="422.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR 1011</text></g>
-<g class="node" id="node-ENGR1024" onmouseenter="syncHover('ENGR1024', true)" onmouseleave="syncHover('ENGR1024', false)"><rect x="100" y="460" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 157.5px 482.5px" /><text x="157.5" y="487.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR 1024</text></g>
-<g class="node" id="node-MATH1016" onmouseenter="syncHover('MATH1016', true)" onmouseleave="syncHover('MATH1016', false)"><rect x="540" y="330" width="115" height="45" fill="#283593" rx="8" style="transform-origin: 597.5px 352.5px" /><text x="597.5" y="357.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">MATH 1016</text></g>
-<g class="node" id="node-MATH1019" onmouseenter="syncHover('MATH1019', true)" onmouseleave="syncHover('MATH1019', false)"><rect x="540" y="395" width="115" height="45" fill="#6A1B9A" rx="8" style="transform-origin: 597.5px 417.5px" /><text x="597.5" y="422.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">MATH 1019</text></g>
-<g class="node" id="node-PROC1008" onmouseenter="syncHover('PROC1008', true)" onmouseleave="syncHover('PROC1008', false)"><rect x="980" y="460" width="115" height="45" fill="#1565C0" rx="8" style="transform-origin: 1037.5px 482.5px" /><text x="1037.5" y="487.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">PROC 1008</text></g>
-<g class="node" id="node-ELEC1001" onmouseenter="syncHover('ELEC1001', true)" onmouseleave="syncHover('ELEC1001', false)"><rect x="100" y="590" width="115" height="45" fill="#EF6C00" rx="8" style="transform-origin: 157.5px 612.5px" /><text x="157.5" y="617.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 1001</text></g>
-<g class="node" id="node-ELEC2001" onmouseenter="syncHover('ELEC2001', true)" onmouseleave="syncHover('ELEC2001', false)"><rect x="100" y="655" width="115" height="45" fill="#4E342E" rx="8" style="transform-origin: 157.5px 677.5px" /><text x="157.5" y="682.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 2001</text></g>
-<g class="node" id="node-ELEC2004" onmouseenter="syncHover('ELEC2004', true)" onmouseleave="syncHover('ELEC2004', false)"><rect x="100" y="720" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 157.5px 742.5px" /><text x="157.5" y="747.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 2004</text></g>
-<g class="node" id="node-ELEC2006" onmouseenter="syncHover('ELEC2006', true)" onmouseleave="syncHover('ELEC2006', false)"><rect x="980" y="590" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 1037.5px 612.5px" /><text x="1037.5" y="617.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 2006</text></g>
-<g class="node" id="node-ELEC2009" onmouseenter="syncHover('ELEC2009', true)" onmouseleave="syncHover('ELEC2009', false)"><rect x="980" y="655" width="115" height="45" fill="#558B2F" rx="8" style="transform-origin: 1037.5px 677.5px" /><text x="1037.5" y="682.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 2009</text></g>
-<g class="node" id="node-ELEC2011" onmouseenter="syncHover('ELEC2011', true)" onmouseleave="syncHover('ELEC2011', false)"><rect x="100" y="785" width="115" height="45" fill="#283593" rx="8" style="transform-origin: 157.5px 807.5px" /><text x="157.5" y="812.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 2011</text></g>
-<g class="node" id="node-ELEC3011" onmouseenter="syncHover('ELEC3011', true)" onmouseleave="syncHover('ELEC3011', false)"><rect x="980" y="720" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 1037.5px 742.5px" /><text x="1037.5" y="747.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 3011</text></g>
-<g class="node" id="node-ENGR3006" onmouseenter="syncHover('ENGR3006', true)" onmouseleave="syncHover('ENGR3006', false)"><rect x="980" y="785" width="115" height="45" fill="#4527A0" rx="8" style="transform-origin: 1037.5px 807.5px" /><text x="1037.5" y="812.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR 3006</text></g>
-<g class="node" id="node-ELEC2007" onmouseenter="syncHover('ELEC2007', true)" onmouseleave="syncHover('ELEC2007', false)"><rect x="100" y="850" width="115" height="45" fill="#EF6C00" rx="8" style="transform-origin: 157.5px 872.5px" /><text x="157.5" y="877.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 2007</text></g>
-<g class="node" id="node-ELEC3001" onmouseenter="syncHover('ELEC3001', true)" onmouseleave="syncHover('ELEC3001', false)"><rect x="100" y="915" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 157.5px 937.5px" /><text x="157.5" y="942.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 3001</text></g>
-<g class="node" id="node-ELEC3002" onmouseenter="syncHover('ELEC3002', true)" onmouseleave="syncHover('ELEC3002', false)"><rect x="980" y="850" width="115" height="45" fill="#4527A0" rx="8" style="transform-origin: 1037.5px 872.5px" /><text x="1037.5" y="877.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 3002</text></g>
-<g class="node" id="node-ELEC3003" onmouseenter="syncHover('ELEC3003', true)" onmouseleave="syncHover('ELEC3003', false)"><rect x="980" y="915" width="115" height="45" fill="#4527A0" rx="8" style="transform-origin: 1037.5px 937.5px" /><text x="1037.5" y="942.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 3003</text></g>
-<g class="node" id="node-ELEC3004" onmouseenter="syncHover('ELEC3004', true)" onmouseleave="syncHover('ELEC3004', false)"><rect x="980" y="980" width="115" height="45" fill="#D84315" rx="8" style="transform-origin: 1037.5px 1002.5px" /><text x="1037.5" y="1007.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 3004</text></g>
-<g class="node" id="node-ELEC3006" onmouseenter="syncHover('ELEC3006', true)" onmouseleave="syncHover('ELEC3006', false)"><rect x="100" y="980" width="115" height="45" fill="#C62828" rx="8" style="transform-origin: 157.5px 1002.5px" /><text x="157.5" y="1007.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 3006</text></g>
-<g class="node" id="node-ELEC3009" onmouseenter="syncHover('ELEC3009', true)" onmouseleave="syncHover('ELEC3009', false)"><rect x="980" y="1045" width="115" height="45" fill="#4E342E" rx="8" style="transform-origin: 1037.5px 1067.5px" /><text x="1037.5" y="1072.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 3009</text></g>
-<g class="node" id="node-ENGR3004" onmouseenter="syncHover('ENGR3004', true)" onmouseleave="syncHover('ENGR3004', false)"><rect x="980" y="1110" width="115" height="45" fill="#2E7D32" rx="8" style="transform-origin: 1037.5px 1132.5px" /><text x="1037.5" y="1137.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR 3004</text></g>
-<g class="node" id="node-ELEC4002" onmouseenter="syncHover('ELEC4002', true)" onmouseleave="syncHover('ELEC4002', false)"><rect x="100" y="1110" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 157.5px 1132.5px" /><text x="157.5" y="1137.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4002</text></g>
-<g class="node" id="node-ELEC4003" onmouseenter="syncHover('ELEC4003', true)" onmouseleave="syncHover('ELEC4003', false)"><rect x="100" y="1175" width="115" height="45" fill="#6A1B9A" rx="8" style="transform-origin: 157.5px 1197.5px" /><text x="157.5" y="1202.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4003</text></g>
-<g class="node" id="node-ELEC4004" onmouseenter="syncHover('ELEC4004', true)" onmouseleave="syncHover('ELEC4004', false)"><rect x="980" y="1175" width="115" height="45" fill="#558B2F" rx="8" style="transform-origin: 1037.5px 1197.5px" /><text x="1037.5" y="1202.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4004</text></g>
-<g class="node" id="node-ELEC4005" onmouseenter="syncHover('ELEC4005', true)" onmouseleave="syncHover('ELEC4005', false)"><rect x="100" y="1240" width="115" height="45" fill="#D84315" rx="8" style="transform-origin: 157.5px 1262.5px" /><text x="157.5" y="1267.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4005</text></g>
-<g class="node" id="node-ELEC4006" onmouseenter="syncHover('ELEC4006', true)" onmouseleave="syncHover('ELEC4006', false)"><rect x="980" y="1240" width="115" height="45" fill="#00695C" rx="8" style="transform-origin: 1037.5px 1262.5px" /><text x="1037.5" y="1267.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4006</text></g>
-<g class="node" id="node-ELEC4007" onmouseenter="syncHover('ELEC4007', true)" onmouseleave="syncHover('ELEC4007', false)"><rect x="100" y="1305" width="115" height="45" fill="#C62828" rx="8" style="transform-origin: 157.5px 1327.5px" /><text x="157.5" y="1332.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4007</text></g>
-<g class="node" id="node-ELEC4008" onmouseenter="syncHover('ELEC4008', true)" onmouseleave="syncHover('ELEC4008', false)"><rect x="980" y="1305" width="115" height="45" fill="#00838F" rx="8" style="transform-origin: 1037.5px 1327.5px" /><text x="1037.5" y="1332.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4008</text></g>
-<g class="node" id="node-ELEC4009" onmouseenter="syncHover('ELEC4009', true)" onmouseleave="syncHover('ELEC4009', false)"><rect x="980" y="1370" width="115" height="45" fill="#00838F" rx="8" style="transform-origin: 1037.5px 1392.5px" /><text x="1037.5" y="1397.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC 4009</text></g>
-<g class="node" id="node-ENGR4041" onmouseenter="syncHover('ENGR4041', true)" onmouseleave="syncHover('ENGR4041', false)"><rect x="540" y="1110" width="115" height="45" fill="#EF6C00" rx="8" style="transform-origin: 597.5px 1132.5px" /><text x="597.5" y="1137.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR 4041</text></g>
-<g class="node" id="node-ENGR4042" onmouseenter="syncHover('ENGR4042', true)" onmouseleave="syncHover('ENGR4042', false)"><rect x="540" y="1175" width="115" height="45" fill="#00838F" rx="8" style="transform-origin: 597.5px 1197.5px" /><text x="597.5" y="1202.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR 4042</text></g>
-<g class="node" id="node-READINESS_TEST" onmouseenter="syncHover('READINESS TEST', true)" onmouseleave="syncHover('READINESS TEST', false)"><rect x="320" y="330" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 377.5px 352.5px" /><text x="377.5" y="357.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">READINESS TEST</text></g>
-<g class="node" id="node-150CPS" onmouseenter="syncHover('150CPS', true)" onmouseleave="syncHover('150CPS', false)"><rect x="320" y="1110" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 377.5px 1132.5px" /><text x="377.5" y="1137.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">150 CPS</text></g>
-<g class="node" id="node-200CPS" onmouseenter="syncHover('200CPS', true)" onmouseleave="syncHover('200CPS', false)"><rect x="320" y="1175" width="115" height="45" fill="#AD1457" rx="8" style="transform-origin: 377.5px 1197.5px" /><text x="377.5" y="1202.5" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">200 CPS</text></g>
+            <text x="520" y="20">Electrical Engineering</text>
+            <text x="10" y="340" font-family="sans-serif" font-size="14" fill="#ddd" font-weight="bold">YEAR 1</text>
+            <text x="10" y="605" font-family="sans-serif" font-size="14" fill="#ddd" font-weight="bold">YEAR 2</text>
+            <text x="10" y="870" font-family="sans-serif" font-size="14" fill="#ddd" font-weight="bold">YEAR 3</text>
+            <text x="10" y="1135" font-family="sans-serif" font-size="14" fill="#ddd" font-weight="bold">YEAR 4</text>
+            <path d="M 597.5 115 Q 557.5 222.5 597.5 330" class="connector from-MATH1021" stroke="#EF6C00" fill="none"
+                marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 435 352.5 C 485 352.5, 490 352.5, 540 352.5" class="connector from-READINESS_TEST"
+                stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 597.5 375 Q 557.5 385.0 597.5 395" class="connector from-MATH1016" stroke="#283593" fill="none"
+                marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 980 352.5 C 930 352.5, 265 677.5, 215 677.5" class="connector from-ELEC1003" stroke="#00838F"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 540 417.5 C 490 417.5, 265 677.5, 215 677.5" class="connector from-MATH1019" stroke="#6A1B9A"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 980 352.5 C 930 352.5, 265 742.5, 215 742.5" class="connector from-ELEC1003" stroke="#00838F"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 655 417.5 C 705 417.5, 930 612.5, 980 612.5" class="connector from-MATH1019" stroke="#6A1B9A"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 417.5 C 265 417.5, 930 612.5, 980 612.5" class="connector from-ENGR1011" stroke="#4527A0"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 612.5 C 265 612.5, 930 677.5, 980 677.5" class="connector from-ELEC1001" stroke="#EF6C00"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 540 417.5 C 490 417.5, 265 807.5, 215 807.5" class="connector from-MATH1019" stroke="#6A1B9A"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 980 352.5 C 930 352.5, 265 807.5, 215 807.5" class="connector from-ELEC1003" stroke="#00838F"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 677.5 C 265 677.5, 930 742.5, 980 742.5" class="connector from-ELEC2001" stroke="#4E342E"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 807.5 C 265 807.5, 930 807.5, 980 807.5" class="connector from-ELEC2011" stroke="#283593"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 100 352.5 C 20 352.5, 20 872.5, 100 872.5" class="connector from-ELEC1006" stroke="#4527A0"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 980 677.5 C 930 677.5, 265 872.5, 215 872.5" class="connector from-ELEC2009" stroke="#558B2F"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 100 807.5 C 20 807.5, 20 937.5, 100 937.5" class="connector from-ELEC2011" stroke="#283593"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 807.5 C 265 807.5, 930 872.5, 980 872.5" class="connector from-ELEC2011" stroke="#283593"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 807.5 C 265 807.5, 930 937.5, 980 937.5" class="connector from-ELEC2011" stroke="#283593"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 612.5 C 265 612.5, 930 1002.5, 980 1002.5" class="connector from-ELEC1001" stroke="#EF6C00"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 980 742.5 C 930 742.5, 265 1002.5, 215 1002.5" class="connector from-ELEC3011" stroke="#AD1457"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 1095 742.5 C 1175 742.5, 1175 1067.5, 1095 1067.5" class="connector from-ELEC3011"
+                stroke="#AD1457" fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 677.5 C 265 677.5, 930 1132.5, 980 1132.5" class="connector from-ELEC2001" stroke="#4E342E"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 100 742.5 C 20 742.5, 20 1132.5, 100 1132.5" class="connector from-ELEC2004" stroke="#AD1457"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 320 1132.5 C 270 1132.5, 265 1197.5, 215 1197.5" class="connector from-150CPS" stroke="#AD1457"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 937.5 C 265 937.5, 930 1197.5, 980 1197.5" class="connector from-ELEC3001" stroke="#AD1457"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 980 1067.5 C 930 1067.5, 265 1262.5, 215 1262.5" class="connector from-ELEC3009" stroke="#4E342E"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 100 937.5 C 20 937.5, 20 1327.5, 100 1327.5" class="connector from-ELEC3001" stroke="#AD1457"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 1002.5 C 265 1002.5, 930 1327.5, 980 1327.5" class="connector from-ELEC3006" stroke="#C62828"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 215 677.5 C 265 677.5, 930 1392.5, 980 1392.5" class="connector from-ELEC2001" stroke="#4E342E"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 435 1197.5 C 485 1197.5, 490 1132.5, 540 1132.5" class="connector from-200CPS" stroke="#AD1457"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <path d="M 597.5 1155 Q 557.5 1165.0 597.5 1175" class="connector from-ENGR4041" stroke="#EF6C00"
+                fill="none" marker-end="url(#arrowhead)" stroke-width="2" opacity="0.4" />
+            <g class="node" id="node-MATH1021" onmouseenter="syncHover('MATH1021', true)"
+                onmouseleave="syncHover('MATH1021', false)">
+                <rect x="540" y="70" width="115" height="45" fill="#EF6C00" rx="8"
+                    style="transform-origin: 597.5px 92.5px" /><text x="597.5" y="97.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">MATH
+                    1021</text>
+            </g>
+            <g class="node" id="node-ELEC1003" onmouseenter="syncHover('ELEC1003', true)"
+                onmouseleave="syncHover('ELEC1003', false)">
+                <rect x="980" y="330" width="115" height="45" fill="#00838F" rx="8"
+                    style="transform-origin: 1037.5px 352.5px" /><text x="1037.5" y="357.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    1003</text>
+            </g>
+            <g class="node" id="node-ELEC1006" onmouseenter="syncHover('ELEC1006', true)"
+                onmouseleave="syncHover('ELEC1006', false)">
+                <rect x="100" y="330" width="115" height="45" fill="#4527A0" rx="8"
+                    style="transform-origin: 157.5px 352.5px" /><text x="157.5" y="357.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    1006</text>
+            </g>
+            <g class="node" id="node-ENGR1018" onmouseenter="syncHover('ENGR1018', true)"
+                onmouseleave="syncHover('ENGR1018', false)">
+                <rect x="980" y="395" width="115" height="45" fill="#00838F" rx="8"
+                    style="transform-origin: 1037.5px 417.5px" /><text x="1037.5" y="422.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR
+                    1018</text>
+            </g>
+            <g class="node" id="node-ENGR1011" onmouseenter="syncHover('ENGR1011', true)"
+                onmouseleave="syncHover('ENGR1011', false)">
+                <rect x="100" y="395" width="115" height="45" fill="#4527A0" rx="8"
+                    style="transform-origin: 157.5px 417.5px" /><text x="157.5" y="422.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR
+                    1011</text>
+            </g>
+            <g class="node" id="node-ENGR1024" onmouseenter="syncHover('ENGR1024', true)"
+                onmouseleave="syncHover('ENGR1024', false)">
+                <rect x="100" y="460" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 157.5px 482.5px" /><text x="157.5" y="487.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR
+                    1024</text>
+            </g>
+            <g class="node" id="node-MATH1016" onmouseenter="syncHover('MATH1016', true)"
+                onmouseleave="syncHover('MATH1016', false)">
+                <rect x="540" y="330" width="115" height="45" fill="#283593" rx="8"
+                    style="transform-origin: 597.5px 352.5px" /><text x="597.5" y="357.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">MATH
+                    1016</text>
+            </g>
+            <g class="node" id="node-MATH1019" onmouseenter="syncHover('MATH1019', true)"
+                onmouseleave="syncHover('MATH1019', false)">
+                <rect x="540" y="395" width="115" height="45" fill="#6A1B9A" rx="8"
+                    style="transform-origin: 597.5px 417.5px" /><text x="597.5" y="422.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">MATH
+                    1019</text>
+            </g>
+            <g class="node" id="node-PROC1008" onmouseenter="syncHover('PROC1008', true)"
+                onmouseleave="syncHover('PROC1008', false)">
+                <rect x="980" y="460" width="115" height="45" fill="#1565C0" rx="8"
+                    style="transform-origin: 1037.5px 482.5px" /><text x="1037.5" y="487.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">PROC
+                    1008</text>
+            </g>
+            <g class="node" id="node-ELEC1001" onmouseenter="syncHover('ELEC1001', true)"
+                onmouseleave="syncHover('ELEC1001', false)">
+                <rect x="100" y="590" width="115" height="45" fill="#EF6C00" rx="8"
+                    style="transform-origin: 157.5px 612.5px" /><text x="157.5" y="617.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    1001</text>
+            </g>
+            <g class="node" id="node-ELEC2001" onmouseenter="syncHover('ELEC2001', true)"
+                onmouseleave="syncHover('ELEC2001', false)">
+                <rect x="100" y="655" width="115" height="45" fill="#4E342E" rx="8"
+                    style="transform-origin: 157.5px 677.5px" /><text x="157.5" y="682.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    2001</text>
+            </g>
+            <g class="node" id="node-ELEC2004" onmouseenter="syncHover('ELEC2004', true)"
+                onmouseleave="syncHover('ELEC2004', false)">
+                <rect x="100" y="720" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 157.5px 742.5px" /><text x="157.5" y="747.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    2004</text>
+            </g>
+            <g class="node" id="node-ELEC2006" onmouseenter="syncHover('ELEC2006', true)"
+                onmouseleave="syncHover('ELEC2006', false)">
+                <rect x="980" y="590" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 1037.5px 612.5px" /><text x="1037.5" y="617.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    2006</text>
+            </g>
+            <g class="node" id="node-ELEC2009" onmouseenter="syncHover('ELEC2009', true)"
+                onmouseleave="syncHover('ELEC2009', false)">
+                <rect x="980" y="655" width="115" height="45" fill="#558B2F" rx="8"
+                    style="transform-origin: 1037.5px 677.5px" /><text x="1037.5" y="682.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    2009</text>
+            </g>
+            <g class="node" id="node-ELEC2011" onmouseenter="syncHover('ELEC2011', true)"
+                onmouseleave="syncHover('ELEC2011', false)">
+                <rect x="100" y="785" width="115" height="45" fill="#283593" rx="8"
+                    style="transform-origin: 157.5px 807.5px" /><text x="157.5" y="812.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    2011</text>
+            </g>
+            <g class="node" id="node-ELEC3011" onmouseenter="syncHover('ELEC3011', true)"
+                onmouseleave="syncHover('ELEC3011', false)">
+                <rect x="980" y="720" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 1037.5px 742.5px" /><text x="1037.5" y="747.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    3011</text>
+            </g>
+            <g class="node" id="node-ENGR3006" onmouseenter="syncHover('ENGR3006', true)"
+                onmouseleave="syncHover('ENGR3006', false)">
+                <rect x="980" y="785" width="115" height="45" fill="#4527A0" rx="8"
+                    style="transform-origin: 1037.5px 807.5px" /><text x="1037.5" y="812.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR
+                    3006</text>
+            </g>
+            <g class="node" id="node-ELEC2007" onmouseenter="syncHover('ELEC2007', true)"
+                onmouseleave="syncHover('ELEC2007', false)">
+                <rect x="100" y="850" width="115" height="45" fill="#EF6C00" rx="8"
+                    style="transform-origin: 157.5px 872.5px" /><text x="157.5" y="877.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    2007</text>
+            </g>
+            <g class="node" id="node-ELEC3001" onmouseenter="syncHover('ELEC3001', true)"
+                onmouseleave="syncHover('ELEC3001', false)">
+                <rect x="100" y="915" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 157.5px 937.5px" /><text x="157.5" y="942.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    3001</text>
+            </g>
+            <g class="node" id="node-ELEC3002" onmouseenter="syncHover('ELEC3002', true)"
+                onmouseleave="syncHover('ELEC3002', false)">
+                <rect x="980" y="850" width="115" height="45" fill="#4527A0" rx="8"
+                    style="transform-origin: 1037.5px 872.5px" /><text x="1037.5" y="877.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    3002</text>
+            </g>
+            <g class="node" id="node-ELEC3003" onmouseenter="syncHover('ELEC3003', true)"
+                onmouseleave="syncHover('ELEC3003', false)">
+                <rect x="980" y="915" width="115" height="45" fill="#4527A0" rx="8"
+                    style="transform-origin: 1037.5px 937.5px" /><text x="1037.5" y="942.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    3003</text>
+            </g>
+            <g class="node" id="node-ELEC3004" onmouseenter="syncHover('ELEC3004', true)"
+                onmouseleave="syncHover('ELEC3004', false)">
+                <rect x="980" y="980" width="115" height="45" fill="#D84315" rx="8"
+                    style="transform-origin: 1037.5px 1002.5px" /><text x="1037.5" y="1007.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    3004</text>
+            </g>
+            <g class="node" id="node-ELEC3006" onmouseenter="syncHover('ELEC3006', true)"
+                onmouseleave="syncHover('ELEC3006', false)">
+                <rect x="100" y="980" width="115" height="45" fill="#C62828" rx="8"
+                    style="transform-origin: 157.5px 1002.5px" /><text x="157.5" y="1007.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    3006</text>
+            </g>
+            <g class="node" id="node-ELEC3009" onmouseenter="syncHover('ELEC3009', true)"
+                onmouseleave="syncHover('ELEC3009', false)">
+                <rect x="980" y="1045" width="115" height="45" fill="#4E342E" rx="8"
+                    style="transform-origin: 1037.5px 1067.5px" /><text x="1037.5" y="1072.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    3009</text>
+            </g>
+            <g class="node" id="node-ENGR3004" onmouseenter="syncHover('ENGR3004', true)"
+                onmouseleave="syncHover('ENGR3004', false)">
+                <rect x="980" y="1110" width="115" height="45" fill="#2E7D32" rx="8"
+                    style="transform-origin: 1037.5px 1132.5px" /><text x="1037.5" y="1137.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR
+                    3004</text>
+            </g>
+            <g class="node" id="node-ELEC4002" onmouseenter="syncHover('ELEC4002', true)"
+                onmouseleave="syncHover('ELEC4002', false)">
+                <rect x="100" y="1110" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 157.5px 1132.5px" /><text x="157.5" y="1137.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4002</text>
+            </g>
+            <g class="node" id="node-ELEC4003" onmouseenter="syncHover('ELEC4003', true)"
+                onmouseleave="syncHover('ELEC4003', false)">
+                <rect x="100" y="1175" width="115" height="45" fill="#6A1B9A" rx="8"
+                    style="transform-origin: 157.5px 1197.5px" /><text x="157.5" y="1202.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4003</text>
+            </g>
+            <g class="node" id="node-ELEC4004" onmouseenter="syncHover('ELEC4004', true)"
+                onmouseleave="syncHover('ELEC4004', false)">
+                <rect x="980" y="1175" width="115" height="45" fill="#558B2F" rx="8"
+                    style="transform-origin: 1037.5px 1197.5px" /><text x="1037.5" y="1202.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4004</text>
+            </g>
+            <g class="node" id="node-ELEC4005" onmouseenter="syncHover('ELEC4005', true)"
+                onmouseleave="syncHover('ELEC4005', false)">
+                <rect x="100" y="1240" width="115" height="45" fill="#D84315" rx="8"
+                    style="transform-origin: 157.5px 1262.5px" /><text x="157.5" y="1267.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4005</text>
+            </g>
+            <g class="node" id="node-ELEC4006" onmouseenter="syncHover('ELEC4006', true)"
+                onmouseleave="syncHover('ELEC4006', false)">
+                <rect x="980" y="1240" width="115" height="45" fill="#00695C" rx="8"
+                    style="transform-origin: 1037.5px 1262.5px" /><text x="1037.5" y="1267.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4006</text>
+            </g>
+            <g class="node" id="node-ELEC4007" onmouseenter="syncHover('ELEC4007', true)"
+                onmouseleave="syncHover('ELEC4007', false)">
+                <rect x="100" y="1305" width="115" height="45" fill="#C62828" rx="8"
+                    style="transform-origin: 157.5px 1327.5px" /><text x="157.5" y="1332.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4007</text>
+            </g>
+            <g class="node" id="node-ELEC4008" onmouseenter="syncHover('ELEC4008', true)"
+                onmouseleave="syncHover('ELEC4008', false)">
+                <rect x="980" y="1305" width="115" height="45" fill="#00838F" rx="8"
+                    style="transform-origin: 1037.5px 1327.5px" /><text x="1037.5" y="1332.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4008</text>
+            </g>
+            <g class="node" id="node-ELEC4009" onmouseenter="syncHover('ELEC4009', true)"
+                onmouseleave="syncHover('ELEC4009', false)">
+                <rect x="980" y="1370" width="115" height="45" fill="#00838F" rx="8"
+                    style="transform-origin: 1037.5px 1392.5px" /><text x="1037.5" y="1397.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ELEC
+                    4009</text>
+            </g>
+            <g class="node" id="node-ENGR4041" onmouseenter="syncHover('ENGR4041', true)"
+                onmouseleave="syncHover('ENGR4041', false)">
+                <rect x="540" y="1110" width="115" height="45" fill="#EF6C00" rx="8"
+                    style="transform-origin: 597.5px 1132.5px" /><text x="597.5" y="1137.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR
+                    4041</text>
+            </g>
+            <g class="node" id="node-ENGR4042" onmouseenter="syncHover('ENGR4042', true)"
+                onmouseleave="syncHover('ENGR4042', false)">
+                <rect x="540" y="1175" width="115" height="45" fill="#00838F" rx="8"
+                    style="transform-origin: 597.5px 1197.5px" /><text x="597.5" y="1202.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">ENGR
+                    4042</text>
+            </g>
+            <g class="node" id="node-READINESS_TEST" onmouseenter="syncHover('READINESS TEST', true)"
+                onmouseleave="syncHover('READINESS TEST', false)">
+                <rect x="320" y="330" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 377.5px 352.5px" /><text x="377.5" y="357.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white"
+                    pointer-events="none">READINESS TEST</text>
+            </g>
+            <g class="node" id="node-150CPS" onmouseenter="syncHover('150CPS', true)"
+                onmouseleave="syncHover('150CPS', false)">
+                <rect x="320" y="1110" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 377.5px 1132.5px" /><text x="377.5" y="1137.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">150
+                    CPS</text>
+            </g>
+            <g class="node" id="node-200CPS" onmouseenter="syncHover('200CPS', true)"
+                onmouseleave="syncHover('200CPS', false)">
+                <rect x="320" y="1175" width="115" height="45" fill="#AD1457" rx="8"
+                    style="transform-origin: 377.5px 1197.5px" /><text x="377.5" y="1202.5" text-anchor="middle"
+                    font-family="sans-serif" font-size="10" font-weight="bold" fill="white" pointer-events="none">200
+                    CPS</text>
+            </g>
         </svg>
     </body>
     </html>
-    
