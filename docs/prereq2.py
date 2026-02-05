@@ -1,6 +1,7 @@
 import re
 import random
 
+filename = "prerequisites_1.html"
 data = """
 0	MATH 1021	All		
 1	ELEC 1003	Spring		
@@ -73,9 +74,27 @@ def generate_interactive_map(input_text):
     COL_MAP = {"Autumn": 0, "Ext_Autumn": 1, "All": 2, "Ext_Spring": 3, "Spring": 4}
     subject_colors = {sid: random.choice(COLORS) for sid in subjects}
     
+    
+    subject_colors = {'MATH1021': '#283593', 'ELEC1003': '#558B2F', 'ELEC1006': '#0277BD', 
+     'ENGR1018': "#F35A38", 'ENGR1011': '#C62828', 'ENGR1024': '#D84315',
+     'MATH1016': '#4E342E', 'MATH1019': '#558B2F', 'PROC1008': "#631D2F", 
+     'ELEC1001': "#2BDF34", 'ELEC2001': '#37474F', 'ELEC2004': '#558B2F', 
+     'ELEC2006': '#4527A0', 'ELEC2009': '#AD1457', 'ELEC2011': '#1565C0', 
+     'ELEC3011': '#2E7D32', 'ENGR3006': '#283593', 'ELEC2007': "#D626B9", 
+     'ELEC3001': '#0277BD', 'ELEC3002': '#D84315', 'ELEC3003': '#37474F', 
+     'ELEC3004': '#C62828', 'ELEC3006': '#EF6C00', 'ELEC3009': '#4527A0', 
+     'ENGR3004': '#1565C0', 'ELEC4002': '#558B2F', 'ELEC4003': '#00838F', 
+     'ELEC4004': '#2E7D32', 'ELEC4005': '#2E7D32', 'ELEC4006': '#558B2F', 
+     'ELEC4007': '#0277BD', 'ELEC4008': '#00838F', 'ELEC4009': '#6A1B9A', 
+     'ENGR4041': '#558B2F', 'ENGR4042': '#37474F', 'READINESS_TEST': '#00838F', 
+     '150CPS': '#EF6C00', '200CPS': '#00695C'}
+    
+    #subject_colors = {sid: random.choice(COLORS) for sid in subjects}
+    print(subject_colors)
+    
     BOX_W, BOX_H = 115, 45
     X_GAP, Y_YEAR_GAP = 220, 260
-    MARGIN_X, MARGIN_Y = 100, 70
+    MARGIN_X, MARGIN_Y = 150, 70
     
     coords = {}
     buckets = {}
@@ -90,6 +109,15 @@ def generate_interactive_map(input_text):
             coords[sid] = (x, y, col_idx)
 
     svg_elements = []
+    
+    svg_elements.append(f'<text x="550" y="20" font-family="sans-serif" font-size="18" font-weight="bold">Electrical Engineering</text>')    
+    svg_elements.append(f'<text x="{MARGIN_X+20}" y="{Y_YEAR_GAP}" font-family="sans-serif" font-size="14" fill="#ccc" font-weight="bold">AUTUMN</text>') 
+    svg_elements.append(f'<text x="{1300 - MARGIN_X - 90}" y="{Y_YEAR_GAP}" font-family="sans-serif" font-size="14" fill="#ccc" font-weight="bold">SPRING</text>') 
+    svg_elements.append(f'<text x="{590}" y="{Y_YEAR_GAP}" font-family="sans-serif" font-size="14" fill="#ccc" font-weight="bold">AUTUMN / SPRING</text>') 
+    # Year background markers
+    for year in range(1, 5):
+        y_pos = MARGIN_Y + (year * Y_YEAR_GAP) + 20
+        svg_elements.append(f'<text x="20" y="{y_pos}" font-family="sans-serif" font-size="14" fill="#ccc" font-weight="bold">YEAR {year}</text>')
     
     # Draw Paths with Source-Specific Classes
     for sid, info in subjects.items():
@@ -129,6 +157,7 @@ def generate_interactive_map(input_text):
     <!DOCTYPE html>
     <html>
     <head>
+        <title>EE Prerequisites</title>
         <style>
             body {{ background: #f4f7f6; display: flex; justify-content: center; padding: 40px; font-family: sans-serif; }}
             svg {{ background: white; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }}
@@ -138,8 +167,8 @@ def generate_interactive_map(input_text):
             .node.is-hovered rect {{ transform: scale(1.15); filter: brightness(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }}
             
             /* Arrow Hover */
-            .connector {{ transition: stroke-width 0.3s, opacity 0.3s, stroke 0.3s; pointer-events: none; }}
-            .connector.highlight {{ stroke-width: 5; opacity: 1; }}
+            .connector {{ transition: stroke-width 0.3s, opacity 0.8s, stroke 0.3s; pointer-events: none; }}
+            .connector.highlight {{ stroke-width: 4; opacity: 1; }}
             
             .year-label {{ fill: #cbd5e0; font-weight: 800; font-size: 16px; pointer-events: none; }}
         </style>
@@ -161,8 +190,8 @@ def generate_interactive_map(input_text):
     <body>
         <svg width="1300" height="1550" viewBox="0 0 1300 1550">
             <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="context-stroke" />
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="6" refY="3" orient="auto">
+                    <polygon points="0 0, 6 3, 0 7" fill="context-stroke" />
                 </marker>
             </defs>
             {chr(10).join(svg_elements)}
@@ -170,7 +199,7 @@ def generate_interactive_map(input_text):
     </body>
     </html>
     """
-    with open("synchronized_pathway.html", "w") as f: f.write(html)
-    print("Interactive map generated: synchronized_pathway.html")
+    with open(filename, "w") as f: f.write(html)
+    print(f"Interactive map generated: {filename}")
 
 generate_interactive_map(data)
