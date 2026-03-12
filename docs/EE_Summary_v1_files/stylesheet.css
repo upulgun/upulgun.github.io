@@ -76,14 +76,6 @@ a:visited
 	text-decoration:none;
 	font-family:Calibri, sans-serif;
 	mso-font-charset:0;}
-.font13
-	{color:#305496;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:Calibri, sans-serif;
-	mso-font-charset:0;}
 td
 	{mso-style-parent:style0;
 	padding-top:1px;
@@ -153,12 +145,8 @@ td
 	font-weight:700;}
 .xl74
 	{mso-style-parent:style0;
-	color:windowtext;}
+	color:#C00000;}
 .xl75
 	{mso-style-parent:style0;
 	font-weight:700;
 	text-align:center;}
-.xl76
-	{mso-style-parent:style0;
-	color:red;
-	font-style:italic;}
